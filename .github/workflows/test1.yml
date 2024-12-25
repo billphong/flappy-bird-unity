@@ -1,4 +1,6 @@
 name: Test1
+on:
+  workflow_dispatch:
 jobs:
   ManageVariables:
     runs-on: windows-latest
