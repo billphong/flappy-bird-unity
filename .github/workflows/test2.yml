@@ -1,0 +1,19 @@
+name: Test2
+
+on:
+  workflow_run:
+    workflows: ["Test1"]
+    types:
+      - completed
+  workflow_dispatch:
+jobs:
+  ManageVariables:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+          lfs: true
+      - name: Write putput checkout head branch
+        run: |
+          Write-Output "Checkout head branch = '$(github.event.workflow_run.head_branch)'"
