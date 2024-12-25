@@ -16,4 +16,4 @@ jobs:
           lfs: true
       - name: Write putput checkout head branch
         run: |
-          Write-Output "Checkout head branch = '$(github.event.workflow_run.head_branch)'"
+          Write-Output "Checkout head branch = '${{ github.event.workflow_run.head_branch}}'"
